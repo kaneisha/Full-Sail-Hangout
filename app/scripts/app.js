@@ -19,11 +19,23 @@ var App = angular.module('fullSailHangoutApp', [
       })
       .when('/courses', {
         templateUrl: 'views/courses.html',
-        //controller: 'Courses'
+        controller: 'Courses'
       })
-      .when('/course', {
+      .when('/course/:id', {
         templateUrl: 'views/course.html',
-        controller: 'Course'
+        controller: 'CourseDesc'
+      })
+      .when('/transit', {
+        templateUrl: 'views/transit.html',
+        controller: 'Transit'
+      })
+      .when('/social', {
+        templateUrl: 'views/social.html',
+        //controller: 'Course'
+      })
+      .when('/alumni', {
+        templateUrl: 'views/alumni.html',
+       // controller: 'Course'
       })
       .otherwise({
         redirectTo: '/'

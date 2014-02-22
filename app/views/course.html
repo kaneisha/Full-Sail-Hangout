@@ -1,23 +1,37 @@
 
+<script>
+jQuery(document).ready(function () {
+    jQuery('nav').meanmenu();
+});
+</script>
+
+	<nav>
+			<ul>
+				<li><a href="#/transit">Full Sail Transit</a></li>
+				<li><a href="#/courses">WDD Courses</a></li>
+				<li><a href="#/social">WDD Social Group</a></li>
+				<li><a href="#/alumni">Alumni</a></li>
+			</ul>
+
+	</nav>
 		<div class="holder_logo container">
-		<a href="index.html"><img src="images/logo.png" /></a>
+		<a href="#/loggedIn"><img src="images/logo.png" /></a>
 		<img src="images/courses.jpg">
-		<p>The Web Standards Project Course examines the process of implementing applications to create a functional, standards-based project for the Internet. Students build upon concepts introduced in the Web Design Fundamentals, Designing for Web Standards, and Principles of Production Process courses related to the production process and standards-based web deployment. Students learn how to utilize Web Standards-based design, including CSS and XHTML, combined with a professional web development workflow model to create an efficient and effective web project. This course explores developing a Web Standards-based project while following a proven production process to ensure successful delivery.</p>
+		<p>{{desc.desc}}</p>
 		</div>
 
 		<div class="comment_text container">
 		<div class="eight columns">
-		<textarea rows="8" cols="50" ng-model="comment" value="">Tell us about the class!</textarea>
+		<textarea rows="8" cols="50" ng-model="newComment" value="">Tell us about the class!</textarea>
 		<button ng-click="addData()" id="submit" value="">Submit</button>
 		</div>
 
 <!-- <button ng-click="saveData()">save</button> -->
 
-
-		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px; height:60px; width:60px;" ng-repeat="item in items">
-			<img src="{{item.loginObj.user.avatar_url}}">
-			<h3 id="user">{{item.loginObj.user.username}}</h3>
-         <p id="user_comment">{{item.comment}}</p>
+		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in desc.comments">
+			<img src="{{loginObj.user.avatar_url}}" style="height:60px; width:60px;">
+			<h3 id="user">{{loginObj.user.username}}</h3>
+         <p id="user_comment">{{comment}}</p>
 		</div>
 	</div>
 	</body>
