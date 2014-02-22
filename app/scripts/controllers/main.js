@@ -9,15 +9,13 @@ var App = angular.module('fullSailHangoutApp')
     ];
   });
 
-App.controller('Courses', ['$scope', '$routeParams', 'FireConn', function($scope, $routeParams, FireConn){
+App.controller('Course', ['$scope', '$routeParams', 'FireConn', function($scope, $routeParams, FireConn) {
 
-    $scope.IdDisplay = $routeParams.id;
+  //FireConn.$bind($scope, 'comment');
+  // console.log(FireConn);
 
-    var free = FireConn.$child($routeParams.id);
-    console.log(free);
+  $scope.addData = function(){
 
-    $scope.item = FireConn.$child($routeParams.id);
-
-    // console.log('Loading Detail', $routeParams.id);
-    // console.log(FireConn);
-  }]);
+  FireConn.$add($scope.comment);
+};
+}]);

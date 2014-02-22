@@ -109,6 +109,7 @@ border: none;
     margin-right: auto;
     display: block;
     max-width: 405px;
+    /*width: 100%*/
     max-height: 120px;
     margin-top: 40px;
 }
@@ -119,13 +120,28 @@ margin-right: 40px;
 }
 
 #user{
-margin-left: 85px;
+margin-left: 70px;
 margin-top: -55px;
 }
 
 #user_comment{
-margin-top: 25px;
+margin-top: 50px;
 margin-left: 30px;
+}
+
+#submit{
+/*float: right;*/
+margin-top: 10px;
+width: 100%;
+background: #eb6e1f;
+color:#fff;
+font-family: 'Arial Black', sans-serif;
+font-size: 17pt;
+height: 45px;
+-webkit-border-radius: 3px;
+-moz-border-radius: 3px;
+border-radius: 3px;
+border: none;
 }
 
 @media screen and (max-width: 479px){
@@ -139,7 +155,7 @@ max-width: 350px;
 @media screen and (max-width: 479px){
 textarea{
 margin-left: 0px;
-max-width: 265px;
+max-width: 280px;
 }
 
 p{

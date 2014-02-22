@@ -19,7 +19,7 @@ var App = angular.module('fullSailHangoutApp', [
       })
       .when('/courses', {
         templateUrl: 'views/courses.html',
-        controller: 'Courses'
+        //controller: 'Courses'
       })
       .when('/course', {
         templateUrl: 'views/course.html',
@@ -35,5 +35,7 @@ App.run(['$firebaseSimpleLogin', '$rootScope', function($firebaseSimpleLogin, $r
 
     var dataRef = new Firebase('https://fsh.firebaseio.com/');
     $rootScope.loginObj = $firebaseSimpleLogin(dataRef);
-    //console.log($rootScope.loginObj);
+    console.log($rootScope.loginObj);
+
+
   }]);
