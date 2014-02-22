@@ -1,39 +1,23 @@
 'use strict';
 
-var App = angular.module('fullSailHangoutApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute',
-  'firebase'
-])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/loggedin', {
-        templateUrl: 'views/home.html',
-        //controller: 'Login'
-      })
-      .when('/courses', {
-        templateUrl: 'views/courses.html',
-        controller: 'Courses'
-      })
-      .when('/course', {
-        templateUrl: 'views/course.html',
-        controller: 'Course'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
+var App = angular.module('fullSailHangoutApp')
+  .controller('MainCtrl', function ($scope) {
+    $scope.awesomeThings = [
+      'HTML5 Boilerplate',
+      'AngularJS',
+      'Karma'
+    ];
   });
 
-/*global Firebase*/
-App.run(['$firebaseSimpleLogin', '$rootScope', function($firebaseSimpleLogin, $rootScope){
+App.controller('Courses', ['$scope', '$routeParams', 'FireConn', function($scope, $routeParams, FireConn){
 
-    var dataRef = new Firebase('https://fsh.firebaseio.com/');
-    $rootScope.loginObj = $firebaseSimpleLogin(dataRef);
-    //console.log($rootScope.loginObj);
+    $scope.IdDisplay = $routeParams.id;
+
+    var free = FireConn.$child($routeParams.id);
+    console.log(free);
+
+    $scope.item = FireConn.$child($routeParams.id);
+
+    // console.log('Loading Detail', $routeParams.id);
+    // console.log(FireConn);
   }]);
