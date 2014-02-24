@@ -9,6 +9,8 @@
 
 module.exports = function (grunt) {
 
+  var pkg = require('./package.json');
+
   // Load grunt tasks automatically
   require('load-grunt-tasks')(grunt);
 
@@ -17,6 +19,36 @@ module.exports = function (grunt) {
 
   // Define the configuration for all the tasks
   grunt.initConfig({
+
+    // Configuration to be run (and then tested).
+    buildcontrol: {
+      options: {
+        dir: 'dist',
+      },
+
+      stage: {
+        options: {
+          branch: 'staging',
+          remote: 'git@github.com:kaneisha/Full-Sail-Hangout.git',
+          commit: true,
+          push: true,
+          connectCommits: false,
+          message: 'Check *this* out.' + pkg.version,
+          tag: pkg.version
+        }
+      },
+      deploy: {
+        options: {
+          branch: 'gh-pages',
+          remote: 'git@github.com:kaneisha/Full-Sail-Hangout.git',
+          commit: true,
+          push: true,
+          connectCommits: false,
+          message: 'Check *this* out.' + pkg.version,
+          tag: pkg.version
+        }
+      },
+    },
 
     // Project settings
     yeoman: {
@@ -253,9 +285,9 @@ module.exports = function (grunt) {
           src: [
             '*.{ico,png,txt}',
             '.htaccess',
+            '.gitignore',
             '*.html',
             'views/{,*/}*.html',
-            'bower_components/**/*',
             'images/{,*/}*.{webp}',
             'fonts/*'
           ]
@@ -344,6 +376,16 @@ module.exports = function (grunt) {
     grunt.log.warn('The `server` task has been deprecated. Use `grunt serve` to start a server.');
     grunt.task.run(['serve']);
   });
+
+  grunt.registerTask('deploy', [
+    'buildcontrol:deploy'
+    ]);
+
+   grunt.registerTask('stage', [
+    'buildcontrol:stage'
+    ]);
+
+  grunt.loadNpmTasks('grunt-build-control');
 
   grunt.registerTask('test', [
     'clean:server',
