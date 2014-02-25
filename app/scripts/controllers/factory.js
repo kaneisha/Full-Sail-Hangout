@@ -28,4 +28,22 @@ angular.module('fullSailHangoutApp')
 
 		return $firebase( ref );
 
+	}])
+
+	.factory('FireSocial', ['$firebase', function ($firebase){
+
+		var url = 'https://fsh.firebaseio.com/social',
+		ref = new Firebase(url);
+
+		return $firebase( ref );
+
+	}])
+
+	.factory('FireAlumni', ['$firebase', function ($firebase){
+
+		var url = 'https://fsh.firebaseio.com/alumni',
+		ref = new Firebase(url);
+
+		return $firebase( ref );
+
 	}]);

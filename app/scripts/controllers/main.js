@@ -48,14 +48,34 @@ App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', function($sc
   };
 
 
-  // $scope.desc.comments = FireTransit.$child($routeParams.id).comments;
+}]);
 
-  // $scope.IdDisplay = $routeParams.id;
+App.controller('Social', ['$scope', '$routeParams', 'FireSocial', function($scope, $routeParams, FireSocial) {
 
-  // $scope.desc = FireCourse.$child($routeParams.id);
+  //$scope.rides = FireTransit;
+  $scope.showComments = FireSocial.$child('comments');
+  $scope.addSocial = function(){
 
- // $scope.desc.comments = FireTransit.comments;
- // console.log($scope.desc.comments);
+    FireSocial.$child('comments').$add($scope.socialComment);
+    console.log(FireSocial, $scope.socialComment);
+    //$scope.showComments = FireTransit.comments;
+  };
+
 
 }]);
+
+App.controller('Alumni', ['$scope', '$routeParams', 'FireAlumni', function($scope, $routeParams, FireAlumni) {
+
+  //$scope.rides = FireTransit;
+  $scope.showComments = FireAlumni.$child('comments');
+  $scope.addAlumni = function(){
+
+    FireAlumni.$child('comments').$add($scope.alumniComments);
+    console.log(FireAlumni, $scope.alumniComments);
+    //$scope.showComments = FireTransit.comments;
+  };
+
+
+}]);
+
 

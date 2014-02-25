@@ -31,11 +31,11 @@ var App = angular.module('fullSailHangoutApp', [
       })
       .when('/social', {
         templateUrl: 'views/social.html',
-        //controller: 'Course'
+        controller: 'Social'
       })
       .when('/alumni', {
         templateUrl: 'views/alumni.html',
-       // controller: 'Course'
+        controller: 'Alumni'
       })
       .otherwise({
         redirectTo: '/'
