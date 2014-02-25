@@ -14,17 +14,15 @@
 
 		<div class="comment_text container">
 		<div class="eight columns">
-		<textarea rows="8" cols="50" ng-model="socialComment">Tell us something good!</textarea>
+		<textarea rows="8" cols="50" ng-model="socialComment" id="social_comment">Tell us something good!</textarea>
 		<button ng-click="addSocial()" id="submit" value="">Submit</button>
 		</div>
 
 
-
-		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in showComments">
-			<img src="{{loginObj.user.avatar_url}}" style="height:60px; width:60px;">
-			<!-- <p>This is awesome!</p> -->
-			<h3 id="user">{{loginObj.user.username}}</h3>
-         <p id="user_comment">{{comment}}</p>
+		<div class="comments eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in showComments">
+			<img src="{{comment.image}}" style="height:60px; width:60px;">
+			<h3 id="user">{{comment.name}}</h3>
+         	<p id="user_comment">{{comment.text}}</p>
 		</div>
 	</div>
 	</body>

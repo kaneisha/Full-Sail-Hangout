@@ -49,5 +49,12 @@ App.run(['$firebaseSimpleLogin', '$rootScope', function($firebaseSimpleLogin, $r
     $rootScope.loginObj = $firebaseSimpleLogin(dataRef);
     console.log($rootScope.loginObj);
 
+      $rootScope.currentUser = {
+        'name' : $rootScope.username,
+        'avatar' : $rootScope.avatar_url
+      };
+
+      console.log($rootScope.currentUser)
+
 
   }]);

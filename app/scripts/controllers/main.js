@@ -50,17 +50,46 @@ App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', function($sc
 
 }]);
 
-App.controller('Social', ['$scope', '$routeParams', 'FireSocial', function($scope, $routeParams, FireSocial) {
+App.controller('Social', ['$scope', '$routeParams', 'FireSocial', '$rootScope', function($scope, $routeParams, FireSocial, $rootScope) {
 
+  var chatRef = FireSocial;
   //$scope.rides = FireTransit;
   $scope.showComments = FireSocial.$child('comments');
+ // $scope.showUser = $scope.username;
+  //$scope.showUser = FireSocial.user.username;
+  //console.log($scope.user.username);
+
   $scope.addSocial = function(){
 
-    FireSocial.$child('comments').$add($scope.socialComment);
-    console.log(FireSocial, $scope.socialComment);
-    //$scope.showComments = FireTransit.comments;
+    $scope.user = $rootScope.loginObj.user.username;
+   // FireSocial.$child('comments').$add($scope.socialComment, $scope.user);
+    console.log($scope.showComments, $scope.showUser);
+
+
+    if($rootScope.loginObj.user.provider === 'github'){
+      $scope.avi = $rootScope.loginObj.user.avatar_url;
+    }
+
+    if($scope.socialComment !== ''){
+      FireSocial.$child('comments').$add({
+        name: $scope.user,
+        text: $scope.socialComment,
+        image: $scope.avi
+      });
+
+      console.log('hey: ', $scope.user);
+    }
+
   };
 
+  // chatRef.$on('child_added', function(snapshot){
+  //   var message = snapshot;
+  //   console.log(message.$scope.user);
+
+  //  // $scope.comments.append('<img src="' + message.image + '">' + '<h3 id="user">' + message.name + '<p id="user_comment">' + message.text + '</p>' );
+
+
+  // });
 
 }]);
 
