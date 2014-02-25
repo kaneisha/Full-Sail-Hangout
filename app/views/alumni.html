@@ -7,22 +7,22 @@
 	</head>
 	<body>
 		<div class="holder_logo container">
-		<a href="index.html"><img src="images/logo.png" /></a>
+		<a href="#/loggedIn"><img src="images/logo.png" /></a>
 		<img src="images/graduation-caps.jpg">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		</div>
 
 		<div class="comment_text container">
 		<div class="eight columns">
-		<textarea rows="8" cols="50">Tell us about your experience alumni!</textarea>
-		<input id="submit" name="submit" type="submit" value="Submit" />
+		<textarea rows="8" cols="50" ng-model="alumniComments">Tell us about your experience alumni!</textarea>
+		<button ng-click="addAlumni()" id="submit" value="">Submit</button>
 		</div>
 
-		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;">
-			<img src="images/comment_logo.png">
+		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in showComments">
+			<img src="{{loginObj.user.avatar_url}}" style="height:60px; width:60px;">
 			<!-- <p>This is awesome!</p> -->
-			<h3 id="user">Username235</h3>
-         <p id="user_comment">This is awesome!</p>
+			<h3 id="user">{{loginObj.user.username}}</h3>
+         <p id="user_comment">{{comment}}</p>
 
 		</div>
 	</div>

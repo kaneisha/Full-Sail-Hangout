@@ -1,24 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Full Sail Transit</title>
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/skeleton.css">
-	</head>
-	<body>
+
 		<div class="holder_logo container">
-		<a href="index.html"><img src="images/logo.png" /></a>
+		<a href="#/loggedIn"><img src="images/logo.png" /></a>
 		<img src="images/googleMapFullSail.jpg">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		</div>
 
 		<div class="comment_text container">
 		<div class="eight columns">
-		<textarea rows="8" cols="50">Tell us where you're going!</textarea>
-		<input id="submit" name="submit" type="submit" value="Submit" />
+		<textarea rows="8" cols="50" ng-model="transComment">Tell us where you're going!</textarea>
+		<button ng-click="addTransit()" id="submit" value="">Submit</button>
 		</div>
 
-			<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;">
+			<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in showComments">
 						<img src="{{loginObj.user.avatar_url}}" style="height:60px; width:60px;">
 						<!-- <p>This is awesome!</p> -->
 						<h3 id="user">{{loginObj.user.username}}</h3>
