@@ -1,10 +1,3 @@
-
-<script>
-jQuery(document).ready(function () {
-    jQuery('nav').meanmenu();
-});
-</script>
-
 	<nav>
 			<ul>
 				<li><a href="#/transit">Full Sail Transit</a></li>
@@ -26,13 +19,12 @@ jQuery(document).ready(function () {
 		<button ng-click="addData()" id="submit" value="">Submit</button>
 		</div>
 
-<!-- <button ng-click="saveData()">save</button> -->
-
 		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in desc.comments">
 			<img src="{{comment.image}}" style="height:60px; width:60px;">
 			<h3 id="user">{{comment.name}}</h3>
+			<!-- <div ng-controller="DateCtrl"> -->
+			<p id="date">{{comment.date}}</p>
+			<!-- </div> -->
          <p id="user_comment">{{comment.text}}</p>
 		</div>
 	</div>
-	</body>
-</html>

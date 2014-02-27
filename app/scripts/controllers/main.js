@@ -20,11 +20,23 @@ App.controller('CourseDesc', ['$scope', '$routeParams', 'FireCourse', '$rootScop
 
 
   $scope.addData = function(){
+    //$scope.now = new Date();
+    var d = new Date();
+    var day = d.getDate();
+    var month = d.getMonth()+1;
+    var year = d.getFullYear();
+
+    if(day<10){
+      day='0'+day;
+    }
+    if(month<10){
+      month='0'+month;
+    }
+    $scope.d = month+'/'+day+'/'+year;
 
     //$scope.desc.$child('comments').$add($scope.newComment);
 
     $scope.user = $rootScope.loginObj.user.username;
-    //$scope.showComments = FireTransit.comments;
 
     if($rootScope.loginObj.user.provider === 'github'){
       $scope.avi = $rootScope.loginObj.user.avatar_url;
@@ -34,6 +46,7 @@ App.controller('CourseDesc', ['$scope', '$routeParams', 'FireCourse', '$rootScop
       FireCourse.$child($routeParams.id).$child('comments').$add({
         name: $scope.user,
         text: $scope.newComment,
+        date: $scope.d,
         image: $scope.avi
       });
 

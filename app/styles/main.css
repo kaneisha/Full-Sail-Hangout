@@ -147,6 +147,10 @@ border-radius: 3px;
 border: none;
 }
 
+#date{
+	margin-left: 76px;
+}
+
 @media screen and (max-width: 479px){
 textarea{
 margin-left: 0px;
