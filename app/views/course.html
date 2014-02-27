@@ -29,9 +29,9 @@ jQuery(document).ready(function () {
 <!-- <button ng-click="saveData()">save</button> -->
 
 		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in desc.comments">
-			<img src="{{loginObj.user.avatar_url}}" style="height:60px; width:60px;">
-			<h3 id="user">{{loginObj.user.username}}</h3>
-         <p id="user_comment">{{comment}}</p>
+			<img src="{{comment.image}}" style="height:60px; width:60px;">
+			<h3 id="user">{{comment.name}}</h3>
+         <p id="user_comment">{{comment.text}}</p>
 		</div>
 	</div>
 	</body>

@@ -16,12 +16,29 @@ App.controller('Courses', ['$scope', '$routeParams', 'FireCourse', function($sco
 
 }]);
 
-App.controller('CourseDesc', ['$scope', '$routeParams', 'FireCourse', function($scope, $routeParams, FireCourse) {
+App.controller('CourseDesc', ['$scope', '$routeParams', 'FireCourse', '$rootScope', function($scope, $routeParams, FireCourse, $rootScope) {
 
 
   $scope.addData = function(){
 
-    $scope.desc.$child('comments').$add($scope.newComment);
+    //$scope.desc.$child('comments').$add($scope.newComment);
+
+    $scope.user = $rootScope.loginObj.user.username;
+    //$scope.showComments = FireTransit.comments;
+
+    if($rootScope.loginObj.user.provider === 'github'){
+      $scope.avi = $rootScope.loginObj.user.avatar_url;
+    }
+
+    if($scope.newComment !== ''){
+      FireCourse.$child($routeParams.id).$child('comments').$add({
+        name: $scope.user,
+        text: $scope.newComment,
+        image: $scope.avi
+      });
+
+      console.log('hey: ', $scope.user);
+    }
 
   };
 
@@ -34,16 +51,33 @@ App.controller('CourseDesc', ['$scope', '$routeParams', 'FireCourse', function($
 
 }]);
 
-App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', function($scope, $routeParams, FireTransit) {
+App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', '$rootScope', function($scope, $routeParams, FireTransit, $rootScope) {
 
   //$scope.rides = FireTransit;
   $scope.showComments = FireTransit.$child('comments');
   $scope.addTransit = function(){
 
+    $scope.user = $rootScope.loginObj.user.username;
+    //$scope.showComments = FireTransit.comments;
+
+    if($rootScope.loginObj.user.provider === 'github'){
+      $scope.avi = $rootScope.loginObj.user.avatar_url;
+    }
+
+    if($scope.transitComment !== ''){
+      FireTransit.$child('comments').$add({
+        name: $scope.user,
+        text: $scope.transComment,
+        image: $scope.avi
+      });
+
+      console.log('hey: ', $scope.user);
+    }
 
 
-    FireTransit.$child('comments').$add($scope.transComment);
-    console.log(FireTransit, $scope.transComment);
+
+    // FireTransit.$child('comments').$add($scope.transComment);
+    // console.log(FireTransit, $scope.transComment);
     //$scope.showComments = FireTransit.comments;
   };
 
@@ -52,12 +86,8 @@ App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', function($sc
 
 App.controller('Social', ['$scope', '$routeParams', 'FireSocial', '$rootScope', function($scope, $routeParams, FireSocial, $rootScope) {
 
-  var chatRef = FireSocial;
   //$scope.rides = FireTransit;
   $scope.showComments = FireSocial.$child('comments');
- // $scope.showUser = $scope.username;
-  //$scope.showUser = FireSocial.user.username;
-  //console.log($scope.user.username);
 
   $scope.addSocial = function(){
 
@@ -82,26 +112,35 @@ App.controller('Social', ['$scope', '$routeParams', 'FireSocial', '$rootScope', 
 
   };
 
-  // chatRef.$on('child_added', function(snapshot){
-  //   var message = snapshot;
-  //   console.log(message.$scope.user);
-
-  //  // $scope.comments.append('<img src="' + message.image + '">' + '<h3 id="user">' + message.name + '<p id="user_comment">' + message.text + '</p>' );
-
-
-  // });
-
 }]);
 
-App.controller('Alumni', ['$scope', '$routeParams', 'FireAlumni', function($scope, $routeParams, FireAlumni) {
+App.controller('Alumni', ['$scope', '$routeParams', 'FireAlumni', '$rootScope', function($scope, $routeParams, FireAlumni, $rootScope) {
 
   //$scope.rides = FireTransit;
+  //$scope.user = $rootScope.loginObj.user.username;
   $scope.showComments = FireAlumni.$child('comments');
   $scope.addAlumni = function(){
 
-    FireAlumni.$child('comments').$add($scope.alumniComments);
+    //FireAlumni.$child('comments').$add($scope.alumniComments);
     console.log(FireAlumni, $scope.alumniComments);
+
+    $scope.user = $rootScope.loginObj.user.username;
     //$scope.showComments = FireTransit.comments;
+
+    if($rootScope.loginObj.user.provider === 'github'){
+      $scope.avi = $rootScope.loginObj.user.avatar_url;
+    }
+
+    if($scope.alumniComments !== ''){
+      FireAlumni.$child('comments').$add({
+        name: $scope.user,
+        text: $scope.alumniComments,
+        image: $scope.avi
+      });
+
+      console.log('hey: ', $scope.user);
+    }
+
   };
 
 
