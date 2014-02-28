@@ -12,6 +12,36 @@ background-color: #eb6e1f;
 height: 50px;
 }
 
+nav{
+    display: none;
+    background-color: #eb6e1f;
+}
+
+input[type=checkbox]:checked ~ nav {
+    display: block;
+    position: relative;
+    z-index: 1;
+    margin-top: 40px;
+
+}
+
+input[type=checkbox] {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+}
+
+label {
+    display: block;
+    /*background: #eb6e1f;*/
+    padding: 5px;
+   /* border: 1px solid rgba(0,0,0,.1);
+    border-radius: 2px;*/
+    /*color: white;
+    font-weight: bold;*/
+}
+
+
 .holder{
 
 }
@@ -123,13 +153,14 @@ margin-right: 40px;
 }
 
 #user{
-margin-left: 70px;
-margin-top: -55px;
+margin-left: 55px;
+margin-top: -50px;
+font-family: georgia;
 }
 
 #user_comment{
-margin-top: 50px;
-margin-left: 30px;
+margin-top: 10px;
+margin-left: 55px;
 }
 
 #submit{
@@ -148,8 +179,19 @@ border: none;
 }
 
 #date{
-	margin-left: 76px;
+	margin-left: 135px;
+    margin-top: -17px;
+    color: #79786a;
+    font-size: 12px;
 }
+
+#comment_space{
+    height: 2px;
+    background-color: #79786a;
+    margin-top: 20px;
+}
+
+/*------------------------------Media Queries------------------------------*/
 
 @media screen and (max-width: 479px){
 textarea{
