@@ -7,6 +7,7 @@ var App = angular.module('fullSailHangoutApp', [
   'ngRoute',
   'firebase'
 ])
+//whenever the url is /something go to this view and call his controller
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
