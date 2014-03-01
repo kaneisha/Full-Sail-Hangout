@@ -1,18 +1,20 @@
 <header>
 	<input type="checkbox" id="clicker">
-	<label for="clicker"><img src="images/menu.png" style="margin-top: -10px; float: right;"></label>
+	<label for="clicker"><img src="images/menu.png" style="margin-top: -12px; float: right;"></label>
 	<nav>
 			<ul>
 				<li><a href="#/transit">Full Sail Transit</a></li>
 				<li><a href="#/courses">WDD Courses</a></li>
-				<li><a href="#/social">WDD Social Group</a></li>
-				<li><a href="#/alumni">Alumni</a></li>
+				<li><a href="#/social">WDD Social</a></li>
+				<li id="active"><a href="#/alumni">Alumni</a></li>
+				<li><a ng-click="loginObj.$logout()">Logout</a>
 			</ul>
 
 	</nav>
 </header>
 		<div class="holder_logo container">
-		<a href="#/loggedIn"><img src="images/logo.png" /></a>
+		<a href="#/loggedIn"><img src="images/logo2.png" /></a>
+		<h2 style="text-align:center; margin-bottom:15px; color:#E8E8E6;">Alumni</h2>
 		<img src="images/graduation-caps.jpg">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 		</div>
@@ -25,9 +27,10 @@
 
 		<div class="eight columns" style="margin-top: 25px; margin-bottom: 20px;" ng-repeat="comment in showComments">
 			<img src="{{comment.image}}" style="height:45px; width:45px;">
-			<h3 id="user">{{comment.name}}</h3>
-			<p id="date">{{comment.date}}</p>
+			<h4 id="user">{{comment.name}}</h4>
+			<p id="date">{{comment.date | date:'MMM dd, yyyy'}}</p>
          	<p id="user_comment">{{comment.text}}</p>
+         	<div id="comment_space"></div>
 
 		</div>
 	</div>

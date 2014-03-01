@@ -1,14 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Full Sail Transit</title>
-		<link rel="stylesheet" href="css/main.css">
-		<link rel="stylesheet" href="css/skeleton.css">
-	</head>
-	<body>
+<header>
+	<input type="checkbox" id="clicker">
+	<label for="clicker"><img src="images/menu.png" style="margin-top: -12px; float: right;"></label>
+	<nav>
+			<ul>
+				<li><a href="#/transit">Full Sail Transit</a></li>
+				<li id="active"><a href="#/courses">WDD Courses</a></li>
+				<li><a href="#/social">WDD Social</a></li>
+				<li><a href="#/alumni">Alumni</a></li>
+				<li><a ng-click="loginObj.$logout()">Logout</a>
+			</ul>
+
+	</nav>
+</header>
 		<div>
 			<div class="holder_logo container">
-				<a href="index.html"><img src="images/logo.png" /></a>
+				<a href="#/loggedIn"><img src="images/logo2.png" /></a>
+				<h2 style="text-align:center; margin-bottom:15px; color:#E8E8E6;">WDD Courses</h2>
 			</div>
 
 			<div class="list container" ng-repeat="($id, course) in courses">
@@ -23,11 +30,3 @@
 				</div>
 			</div>
 		</div><!--holder-->
-
-	</body>
-
-	<footer>
-
-	</footer>
-
-</html>

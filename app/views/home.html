@@ -1,28 +1,27 @@
 <header>
-  <a href="/">{{loginObj.user.username}}</a>
+  <a ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout, {{loginObj.user.username}}</a>
 </header>
 <div>
       <div class="holder_logo container">
-        <img src="images/logo.png" />
+        <img src="images/logo2.png" />
       </div>
 
       <div class="holder container">
-        <div class="two columns">
-          <a href="#/transit"><img src="images/transit.png"/></a>
+        <div class="four columns">
+          <a href="#/transit"><img id="transit" src="images/transit.png"/></a>
           <!-- <p class="name">Full Sail Transit</p> -->
         </div>
-        <div class="two columns">
-          <a href="#/courses"><img src="images/courses.png"/></a>
+        <div class="four columns">
+          <a href="#/courses"><img id="courses" src="images/courses.png"/></a>
           <!-- <p class="name">WDD Courses</p> -->
         </div>
-      </div>
-      <div class="holdertwo container">
-        <div class="two columns">
+
+        <div class="four columns">
           <a href="#/social"><img src="images/social.png"/></a>
           <!-- <p class="name">WDD Social Group</p> -->
         </div>
-        <div class="two columns">
-          <a href="#/alumni"><img src="images/alumni.png"/></a>
+        <div class="four columns">
+          <a href="#/alumni"><img id="alumni" src="images/alumni.png"/></a>
           <!-- <p class="name">Alumni</p> -->
         </div>
       </div>

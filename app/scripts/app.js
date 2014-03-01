@@ -43,18 +43,27 @@ var App = angular.module('fullSailHangoutApp', [
   });
 
 /*global Firebase*/
-App.run(['$firebaseSimpleLogin', '$rootScope', function($firebaseSimpleLogin, $rootScope){
+App.run(['$firebaseSimpleLogin', '$rootScope', '$window', '$location', function($firebaseSimpleLogin, $rootScope, $window, $location){
 
     var dataRef = new Firebase('https://fsh.firebaseio.com/');
     $rootScope.loginObj = $firebaseSimpleLogin(dataRef);
     console.log($rootScope.loginObj);
 
-      // $rootScope.currentUser = {
-      //   'name' : $rootScope.username,
-      //   'avatar' : $rootScope.avatar_url
-      // };
+    $rootScope.$on('$firebaseSimpleLogin:login', function(user) {
 
-      // console.log($rootScope.currentUser);
+    if(user){
+      $window.location.href = '#/loggedIn';
+    }
+
+  });
+
+    $rootScope.$on('$firebaseSimpleLogin:logout', function(user) {
+
+    if(user){
+      $location.path('/');
+    }
+
+  });
 
 
   }]);

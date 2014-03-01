@@ -21,23 +21,9 @@ App.controller('CourseDesc', ['$scope', '$routeParams', 'FireCourse', '$rootScop
 
   $scope.addData = function(){
     //$scope.now = new Date();
-    // var d = new Date();
-    // var day = d.getDate();
-    // var month = d.getMonth()+1;
-    // var year = d.getFullYear();
-
-    // if(day<10){
-    //   day='0'+day;
-    // }
-    // if(month<10){
-    //   month='0'+month;
-    // }
-    // $scope.d = month+'/'+day+'/'+year;
 
     $scope.date = Date();
     $scope.d = Date.parse($scope.date);
-
-
 
     //$scope.desc.$child('comments').$add($scope.newComment);
 
@@ -54,7 +40,7 @@ App.controller('CourseDesc', ['$scope', '$routeParams', 'FireCourse', '$rootScop
         date: $scope.d,
         image: $scope.avi
       });
-
+      $scope.newComment = '';
       console.log('hey: ', $scope.user);
     }
 
@@ -75,18 +61,9 @@ App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', '$rootScope'
   $scope.showComments = FireTransit.$child('comments');
   $scope.addTransit = function(){
 
-    var d = new Date();
-    var day = d.getDate();
-    var month = d.getMonth()+1;
-    var year = d.getFullYear();
 
-    if(day<10){
-      day='0'+day;
-    }
-    if(month<10){
-      month='0'+month;
-    }
-    $scope.d = month+'/'+day+'/'+year;
+    $scope.date = Date();
+    $scope.d = Date.parse($scope.date);
 
     $scope.user = $rootScope.loginObj.user.username;
     //$scope.showComments = FireTransit.comments;
@@ -95,22 +72,17 @@ App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', '$rootScope'
       $scope.avi = $rootScope.loginObj.user.avatar_url;
     }
 
-    if($scope.transitComment !== ''){
+    if($scope.transitComment !== '' && $scope.transitComment !== undefined){
       FireTransit.$child('comments').$add({
         name: $scope.user,
         text: $scope.transComment,
         date: $scope.d,
         image: $scope.avi
       });
-
+      $scope.transComment = '';
       console.log('hey: ', $scope.user);
     }
 
-
-
-    // FireTransit.$child('comments').$add($scope.transComment);
-    // console.log(FireTransit, $scope.transComment);
-    //$scope.showComments = FireTransit.comments;
   };
 
 
@@ -123,18 +95,9 @@ App.controller('Social', ['$scope', '$routeParams', 'FireSocial', '$rootScope', 
 
   $scope.addSocial = function(){
 
-    var d = new Date();
-    var day = d.getDate();
-    var month = d.getMonth()+1;
-    var year = d.getFullYear();
 
-    if(day<10){
-      day='0'+day;
-    }
-    if(month<10){
-      month='0'+month;
-    }
-    $scope.d = month+'/'+day+'/'+year;
+    $scope.date = Date();
+    $scope.d = Date.parse($scope.date);
 
     $scope.user = $rootScope.loginObj.user.username;
    // FireSocial.$child('comments').$add($scope.socialComment, $scope.user);
@@ -145,14 +108,14 @@ App.controller('Social', ['$scope', '$routeParams', 'FireSocial', '$rootScope', 
       $scope.avi = $rootScope.loginObj.user.avatar_url;
     }
 
-    if($scope.socialComment !== ''){
+    if($scope.socialComment !== '' && $scope.socialComment !== undefined){
       FireSocial.$child('comments').$add({
         name: $scope.user,
         text: $scope.socialComment,
         date: $scope.d,
         image: $scope.avi
       });
-
+      $scope.socialComment = '';
       console.log('hey: ', $scope.user);
     }
 
@@ -167,18 +130,9 @@ App.controller('Alumni', ['$scope', '$routeParams', 'FireAlumni', '$rootScope', 
   $scope.showComments = FireAlumni.$child('comments');
   $scope.addAlumni = function(){
 
-    var d = new Date();
-    var day = d.getDate();
-    var month = d.getMonth()+1;
-    var year = d.getFullYear();
 
-    if(day<10){
-      day='0'+day;
-    }
-    if(month<10){
-      month='0'+month;
-    }
-    $scope.d = month+'/'+day+'/'+year;
+    $scope.date = Date();
+    $scope.d = Date.parse($scope.date);
 
     //FireAlumni.$child('comments').$add($scope.alumniComments);
     console.log(FireAlumni, $scope.alumniComments);
@@ -190,14 +144,14 @@ App.controller('Alumni', ['$scope', '$routeParams', 'FireAlumni', '$rootScope', 
       $scope.avi = $rootScope.loginObj.user.avatar_url;
     }
 
-    if($scope.alumniComments !== ''){
+    if($scope.alumniComments !== '' && $scope.alumniComments !== undefined){
       FireAlumni.$child('comments').$add({
         name: $scope.user,
         text: $scope.alumniComments,
         date: $scope.d,
         image: $scope.avi
       });
-
+      $scope.alumniComments = '';
       console.log('hey: ', $scope.user);
     }
 

@@ -17,6 +17,14 @@ nav{
     background-color: #eb6e1f;
 }
 
+h2{
+    font-family: verdana,arial,sans-serif;
+}
+
+#active{
+    background-color: rgba(255,255,255,.1);
+}
+
 input[type=checkbox]:checked ~ nav {
     display: block;
     position: relative;
@@ -35,10 +43,6 @@ label {
     display: block;
     /*background: #eb6e1f;*/
     padding: 5px;
-   /* border: 1px solid rgba(0,0,0,.1);
-    border-radius: 2px;*/
-    /*color: white;
-    font-weight: bold;*/
 }
 
 
@@ -58,7 +62,7 @@ display: block;
 margin-left: auto;
 margin-right: auto;
 max-width: 100%;
-margin-bottom: 50px;
+margin-bottom: 30px;
 }
 
 .icon{
@@ -76,9 +80,10 @@ margin-top: 55px;
 }
 
 p{
-font-family: georgia;
+font-family: arial;
 color: white;
 /*text-align: center;*/
+line-height: 1.4em;
 }
 
 img{
@@ -93,17 +98,33 @@ height: 50px;
 
 /*------------------------Classes Page-------------------------------*/
 ul{
-font-family: arial;
 list-style-type: none;
+font-family: arial;
+/*margin-left: 10px;*/
+text-align: center;
 }
 ul li{
 text-decoration: none;
 padding-bottom: 8px;
 padding-top: 8px;
 }
+
+ul li:hover{
+    background-color: rgba(255,255,255,.1);
+}
+
 ul a{
 text-decoration: none;
-color: black;
+color: #fff;
+}
+
+.list ul{
+    text-align: left;
+    /*margin-left: 10px;*/
+}
+.list a{
+    /*text-align: left;*/
+    margin-left: 10px;
 }
 
 .list{
@@ -156,6 +177,7 @@ margin-right: 40px;
 margin-left: 55px;
 margin-top: -50px;
 font-family: georgia;
+color: #E8E8E6;
 }
 
 #user_comment{
@@ -183,6 +205,7 @@ border: none;
     margin-top: -17px;
     color: #79786a;
     font-size: 12px;
+    font-family: georgia;
 }
 
 #comment_space{
@@ -192,6 +215,16 @@ border: none;
 }
 
 /*------------------------------Media Queries------------------------------*/
+@media screen and (max-width: 767px){
+    #courses{
+        float: right;
+        margin-top: -139px;
+    }
+    #alumni{
+        float:right;
+        margin-top: -131px;
+    }
+}
 
 @media screen and (max-width: 479px){
 textarea{
