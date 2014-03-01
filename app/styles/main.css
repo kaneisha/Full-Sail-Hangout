@@ -21,6 +21,13 @@ h2{
     font-family: verdana,arial,sans-serif;
 }
 
+#log{
+    padding-top: 15px;
+    padding-left: 10px;
+    color: #3f3e35;
+    font-family: arial, sans-serif;
+}
+
 #active{
     background-color: rgba(255,255,255,.1);
 }

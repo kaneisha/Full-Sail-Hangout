@@ -1,5 +1,7 @@
 <header>
-  <a ng-show="loginObj.user" ng-click="loginObj.$logout()">Logout, {{loginObj.user.username}}</a>
+  <div id="log">
+  <a ng-click="loginObj.$logout()">Welcome, {{loginObj.user.username}} | Logout</a>
+</div>
 </header>
 <div>
       <div class="holder_logo container">

@@ -72,7 +72,7 @@ App.controller('Transit', ['$scope', '$routeParams', 'FireTransit', '$rootScope'
       $scope.avi = $rootScope.loginObj.user.avatar_url;
     }
 
-    if($scope.transitComment !== '' && $scope.transitComment !== undefined){
+    if($scope.transComment !== '' && $scope.transComment !== undefined){
       FireTransit.$child('comments').$add({
         name: $scope.user,
         text: $scope.transComment,
