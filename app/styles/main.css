@@ -57,6 +57,12 @@ label {
 
 }
 
+.main_holder{
+   display: block;
+margin-left: auto;
+margin-right: auto;
+}
+
 .holder img{
 display: block;
 margin-left: auto;

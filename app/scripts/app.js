@@ -45,25 +45,29 @@ var App = angular.module('fullSailHangoutApp', [
 /*global Firebase*/
 App.run(['$firebaseSimpleLogin', '$rootScope', '$window', '$location', function($firebaseSimpleLogin, $rootScope, $window, $location){
 
+    //sets dataRef to be the url of my Firebase
     var dataRef = new Firebase('https://fsh.firebaseio.com/');
+    //gives the firebaseSimpleLogin my firebase url and sets it ti loginObj
     $rootScope.loginObj = $firebaseSimpleLogin(dataRef);
     console.log($rootScope.loginObj);
 
+    //function when user logins to direct them to the home page
     $rootScope.$on('$firebaseSimpleLogin:login', function(user) {
 
-    if(user){
-      $window.location.href = '#/loggedIn';
-    }
+      if(user){
+        $window.location.href = '#/loggedIn';
+      }
 
-  });
+    });
 
+    //function when user logouts to direct them to the landing page
     $rootScope.$on('$firebaseSimpleLogin:logout', function(user) {
 
-    if(user){
-      $location.path('/');
-    }
+      if(user){
+        $location.path('/');
+      }
 
-  });
+    });
 
 
   }]);
